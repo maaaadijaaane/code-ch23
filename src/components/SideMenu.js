@@ -22,7 +22,7 @@ renderModeMenuItems = () => {
       return(
         <div>
           <a className="sidemenu-item">
-            <span className="fa fa-plus"></span>&nbsp;Log New Round</a>
+            <span className="fa fa-plus" id="logNewRound" onClick={this.props.handleClick}></span>&nbsp;Log New Round</a>
           <a className="sidemenu-item">
             <span className="fa fa-search"></span>&nbsp;Search Rounds</a>
         </div>

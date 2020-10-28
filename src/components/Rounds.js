@@ -7,6 +7,7 @@ import AppMode from './../AppMode.js';
 import RoundsTable from './RoundsTable.js';
 import RoundForm from './RoundForm.js';
 import FloatingButton from './FloatingButton.js';
+import SideMenu from './SideMenu.js';
 
 class Rounds extends React.Component {
 
@@ -22,7 +23,8 @@ class Rounds extends React.Component {
             this.state = {rounds: data.rounds,
                           roundCount: data.roundCount,
                           deleteId: "",
-                          editId: ""};           
+                          editId: "",
+                          showBtn: true};           
         }
 
     //addRound -- Given an object newData containing a new round, add the round
@@ -71,6 +73,17 @@ class Rounds extends React.Component {
         this.setState({editId: val});
     }
     
+    toggleViewButton() {
+        if(this.props.menuOpen)
+        {
+          this.state.showBtn = false;
+        }
+        else{
+          this.state.showBtn = true;
+        }
+        //this.state.showBtn = !this.state.showBtn
+      }
+
     //render -- Conditionally render the Rounds mode page as either the rounds
     //table, the rounds form set to obtain a new round, or the rounds form set
     //to edit an existing round.
@@ -85,7 +98,7 @@ class Rounds extends React.Component {
                     setDeleteId={this.setDeleteId}
                     deleteRound={this.deleteRound}
                     changeMode={this.props.changeMode}
-                    menuOpen={this.props.menuOpen} /> 
+                    menuOpen={this.props.menuOpen}/> 
                     <FloatingButton
                         handleClick={() => 
                         this.props.changeMode(AppMode.ROUNDS_LOGROUND)}
