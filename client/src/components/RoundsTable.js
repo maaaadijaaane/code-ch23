@@ -1,6 +1,6 @@
 import React from 'react';
 import AppMode from './../AppMode.js';
-import ConfirmDeleteBox from "ConfirmDeleteox.js" 
+import ConfirmDeleteBox from "ConfirmDeleteBox.js" 
 
 class RoundsTable extends React.Component {
   constructor(){
