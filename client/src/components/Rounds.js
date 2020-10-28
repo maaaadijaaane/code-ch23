@@ -94,11 +94,11 @@ class Rounds extends React.Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
                 },
-            method: 'POST',
+            method: 'DELETE',
             body: JSON.stringify()}); 
         const msg = await res.text();
         if (res.status != 200) {
-            alert("An error occurred when attempting to add new round to database: " 
+            alert("An error occurred when attempting to delete a round to database: " 
             + msg);
             this.props.changeMode(AppMode.ROUNDS)
         } else {
