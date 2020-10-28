@@ -1,7 +1,12 @@
 import React from 'react';
 import AppMode from './../AppMode.js';
+import ConfirmDeleteBox from "ConfirmDeleteox.js" 
 
 class RoundsTable extends React.Component {
+  constructor(){
+    super();
+    this.state = {showConfirmDelete: false}
+  }
 
   //editRound -- Triggered when the user clicks the edit button for a given
   //round. The id param is the unique property that identifies the round.
@@ -22,7 +27,16 @@ class RoundsTable extends React.Component {
   //present alert box placeholder
   confirmDelete = (id) => {
     this.props.setDeleteId(id);
-    alert("Confirm Delete Goes here!");
+    this.setState({showConfirmDelete: true})
+  }
+
+  deleteRound = () => {
+    this.props.deleteRound();
+    this.setState({showConfirmDelete: false});
+  }
+
+  hideConfirmDelete = () => {
+    this.setState({showConfirmDelete: false});
   }
 
 
@@ -82,6 +96,10 @@ class RoundsTable extends React.Component {
           }
         </tbody>
       </table>
+      {this.state.showConfirmDelete ?
+        <ConfirmDeleteBox
+          close={this.hideConfirmDeleteBox}
+          deleteRound={this.deleteRound} /> : null}
     </div>
     );
   }
