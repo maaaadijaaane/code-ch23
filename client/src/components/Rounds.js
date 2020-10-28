@@ -87,7 +87,23 @@ class Rounds extends React.Component {
     //deleteRound -- Delete the current user's round uniquely identified by
     //this.state.deleteId, delete from the database, and reset deleteId to empty.
     deleteRound = async () => {
-        //TO DO: Fill this in
+        const url = '/rounds/' + this.props.userObj.id + '/' + 
+            this.props.userObj.rounds[this.state.deleteId]._id;
+        const res = await fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+            method: 'POST',
+            body: JSON.stringify(newData)}); 
+        const msg = await res.text();
+        if (res.status != 200) {
+            alert("An error occurred when attempting to add new round to database: " 
+            + msg);
+            this.props.changeMode(AppMode.ROUNDS)
+        } else {
+            this.props.refreshOnUpdate(AppMode.ROUNDS);
+        }
     }
  
     //setDeleteId -- Capture in this.state.deleteId the unique id of the item
