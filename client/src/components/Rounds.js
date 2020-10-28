@@ -95,7 +95,7 @@ class Rounds extends React.Component {
                 'Content-Type': 'application/json'
                 },
             method: 'POST',
-            body: JSON.stringify(newData)}); 
+            body: JSON.stringify()}); 
         const msg = await res.text();
         if (res.status != 200) {
             alert("An error occurred when attempting to add new round to database: " 
