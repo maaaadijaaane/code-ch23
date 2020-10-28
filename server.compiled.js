@@ -41,7 +41,7 @@ var app = (0, _express["default"])(); //////////////////////////////////////////
 //using the mongoose library.
 //////////////////////////////////////////////////////////////////////////
 
-var connectStr = 'mongodb://localhost:27017/appdb';
+var connectStr = 'mongodb+srv://dbAdmin:zthgycH5U48wfSS@speedgolf.xz3vv.mongodb.net/appdb?retryWrites=true&w=majority';
 
 _mongoose["default"].connect(connectStr, {
   useNewUrlParser: true,
